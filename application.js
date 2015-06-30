@@ -1,10 +1,29 @@
+var toDoList = [];
+
+function changeDisplay(){
+	var list = document.getElementById("todolist");
+	list.innerHTML = "";
+	//This is the only place we actually change the screen.
+	for(var i=0; i<toDoList.length; i++){
+		list.innerHTML += '<div class="item">' + toDoList[i] + '</div>';
+	}
+}
+
 function addToDo() {
-	var toDoList = [];
-	var list;
 	
-	list = document.getElementById("todolist");
+	var tmpItem;
+	var newToDo = document.getElementById("todonew");
 	
-	toDoList[0] = "Take out the dog";
+
+	tmpItem = newToDo.value;
 	
-	list.innerHTML += '<div class="item">' + toDoList[0] + '</div>'
+	
+	toDoList.push(tmpItem);
+	
+	changeDisplay();
+	
+	
+	newToDo.value = "";
+	newToDo.select();
+	
 }
